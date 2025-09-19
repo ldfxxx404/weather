@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "import.meta.env"]
+  "include": ["src", "import.meta.env", "env.d.ts"]
 }

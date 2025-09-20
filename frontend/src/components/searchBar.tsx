@@ -1,7 +1,6 @@
 import { type InputHTMLAttributes, type ChangeEvent } from "react";
 
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
-  // Props for the search bar component
   placeholder: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   city: string;

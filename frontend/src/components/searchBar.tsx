@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, type ChangeEvent } from "react";
+import { type InputHTMLAttributes, type ChangeEvent } from 'react';
 
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;

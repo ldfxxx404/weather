@@ -10,6 +10,7 @@ import getWeather from '@/utils/getWeather';
 import getAirQuality from '@/utils/getAirQuality';
 import { AirQualityCard } from '@/components/airQualityCard';
 import { HourlyForecastCard } from '@/components/hourlyForecastCard';
+import { Round } from '@/utils/round';
 
 function App() {
   const [city, setCity] = useState<string>('');
@@ -22,6 +23,8 @@ function App() {
   const [co, setCo] = useState<number | null>(null);
   const [aqi, setAqi] = useState<number | null>(null);
   const [dust, setDust] = useState<number | null>(null);
+  const [hourlyTemp, setHorlyTemp] = useState<number | null>(null);
+  const [hourlyRainChance, setHourlyRainChance] = useState<number | null>(null)
 
   return (
     <main className="min-h-screen bg-[#0B0A17] flex items-center justify-center p-6">
@@ -41,6 +44,8 @@ function App() {
                 setCode(weatherData.daily.weather_code);
                 setSunrise(weatherData.daily.sunrise[0]);
                 setSunset(weatherData.daily.sunset[0]);
+                setHorlyTemp(weatherData.hourly.temperature_2m[0]);
+                setHourlyRainChance(weatherData.hourly.rain[0])
 
                 const airQualityData = await getAirQuality();
                 setCo(airQualityData.current.carbon_monoxide);
@@ -56,7 +61,7 @@ function App() {
             />
           </form>
           <TodayForecastCard>
-            <span className="text-lg font-bold">{todayWeather} °C</span>
+            <span className="text-lg font-bold">{Round(todayWeather)}°C</span>
             <div className="text-lg font-bold text-right ml-48">
               <h3>Sunrise 🌇</h3>
               {sunrise ? <span>{toLocalTime(sunrise)}</span> : '--:--'}
@@ -86,13 +91,24 @@ function App() {
               className="flex justify-between items-center border-2 border-gray-600 rounded-lg p-3 bg-gray-800 hover:bg-gray-700 transition-all shadow-sm"
             >
               <span className="text-lg font-medium">{reverseDate(date[idx])}</span>
-              <span className="text-lg font-bold">{temp}°C</span>
+              <span className="text-lg font-bold">{Round(temp)}°C</span>
               <span className="text-lg">{WMO_WEATHER_CODES[code[idx]]}</span>
             </li>
           ))}
         </SevenDayForecast>
 
-        <HourlyForecastCard>some weather data</HourlyForecastCard>
+        <HourlyForecastCard>
+          <div>
+            <h3 className="text-lg font-bold">
+              Current temperature:{' '}
+              <span className="font-medium text-base">{Round(hourlyTemp)} °C</span>
+            </h3>
+            <h3 className="text-lg font-bold">
+              Chance of rain: {' '}
+              <span className='font-medium text-base'>{hourlyRainChance}</span>
+              </h3>
+          </div>
+        </HourlyForecastCard>
       </div>
     </main>
   );

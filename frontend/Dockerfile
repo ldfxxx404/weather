@@ -6,8 +6,6 @@ COPY package.json yarn.lock ./
 
 RUN yarn install
 
-COPY . .
+EXPOSE ${PORT}
 
-EXPOSE 5173
-
-CMD ["yarn", "dev", "--host"]
+CMD ["yarn", "dev", "--host", "0.0.0.0"]

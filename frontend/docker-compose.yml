@@ -1,10 +1,9 @@
-name: "weather"
-services: 
+name: 'weather'
+services:
   frontend:
     build: .
-    ports: 
-      - "5173:5173"
+    ports:
+      - '5173:5173'
     volumes:
       - .:/app
       - /app/node_modules
-    command: yarn dev --host 0.0.0.0

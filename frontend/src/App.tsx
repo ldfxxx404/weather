@@ -10,7 +10,8 @@ import { HourlyForecastCard } from '@/components/hourlyForecastCard';
 
 function App() {
   const [city, setCity] = useState<string>('');
-  const [weekly, setWeekly] = useState<number[]>([]);
+  const [weeklyMax, setWeeklyMax] = useState<number[]>([]);
+  const [weeklyMin, setWeeklyMin] = useState<number[]>([]);
   const [todayWeather, setTodayWeather] = useState<number | null>(null);
   const [date, setDate] = useState<string[]>([]);
   const [code, setCode] = useState<number[]>([]);
@@ -19,11 +20,12 @@ function App() {
   const [co, setCo] = useState<number | null>(null);
   const [aqi, setAqi] = useState<number | null>(null);
   const [dust, setDust] = useState<number | null>(null);
-  const [hourlyTemp, setHorlyTemp] = useState<number | null>(null);
+  const [hourlyTemp, setHorlyTemp] = useState<number[]>([]);
   const [hourlyRainChance, setHourlyRainChance] = useState<number | null>(null);
+  const [hourlyWeatherTime, setHourlyWeatherTime] = useState<string[]>([])
 
   return (
-    <main className="min-h-screen bg-[#0B0A17] flex items-center justify-center p-6 max-sm:bg-amber-600">
+    <main className="min-h-screen bg-[#1b6ea8] flex items-center justify-center p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
         <div className="flex flex-col gap-6">
           {' '}
@@ -33,14 +35,16 @@ function App() {
               const setCoordinates = await getCoordinates(city);
               if (setCoordinates) {
                 const weatherData = await getWeather();
-                setWeekly(weatherData.daily.temperature_2m_max);
+                setWeeklyMax(weatherData.daily.temperature_2m_max);
+                setWeeklyMin(weatherData.daily.temperature_2m_min);
                 setTodayWeather(weatherData.daily.temperature_2m_max[0]);
                 setDate(weatherData.daily.time);
                 setCode(weatherData.daily.weather_code);
                 setSunrise(weatherData.daily.sunrise[0]);
                 setSunset(weatherData.daily.sunset[0]);
-                setHorlyTemp(weatherData.hourly.temperature_2m[0]);
+                setHorlyTemp(weatherData.hourly.temperature_2m);
                 setHourlyRainChance(weatherData.hourly.rain[0]);
+                setHourlyWeatherTime(weatherData.hourly.time)
 
                 const airQualityData = await getAirQuality();
                 setCo(airQualityData.current.carbon_monoxide);
@@ -69,14 +73,15 @@ function App() {
             {aqi}
           </AirQualityCard>
         </div>
-        <SevenDayForecast weekly={weekly} code={code} date={date}>
+        <SevenDayForecast weeklyMax={weeklyMax} weeklyMin={weeklyMin} code={code} date={date}>
           {code}
           {date}
           {code}
         </SevenDayForecast>
-        <HourlyForecastCard hourlyTemp={hourlyTemp} hourlyRainChance={hourlyRainChance}>
+        <HourlyForecastCard hourlyTemp={hourlyTemp} hourlyRainChance={hourlyRainChance} time={hourlyWeatherTime}>
           {hourlyTemp}
           {hourlyRainChance}
+          {hourlyWeatherTime}
         </HourlyForecastCard>
       </div>
     </main>

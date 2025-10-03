@@ -11,7 +11,7 @@ export const SearchBar = (props: SearchBarProps) => {
     <input
       {...props}
       type="text"
-      className="p-3 w-full text-white bg-gray-600 rounded-lg focus:outline-none"
+      className="p-3 w-full text-white bg-[#3696dbbe] rounded-lg focus:outline-none"
     />
   );
 };

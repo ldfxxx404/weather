@@ -19,7 +19,7 @@ interface DailyUnits {
   temperature_2m_min: '°C';
 }
 
-interface Hourly {
+export interface Hourly {
   time: string[];
   temperature_2m: number[];
   relative_humidity_2m: number[];

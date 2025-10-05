@@ -20,9 +20,9 @@ function App() {
   const [co, setCo] = useState<number | null>(null);
   const [aqi, setAqi] = useState<number | null>(null);
   const [dust, setDust] = useState<number | null>(null);
-  const [hourlyTemp, setHorlyTemp] = useState<number[]>([]);
+  const [hourlyTemperature, setHorlyTemperature] = useState<number[]>([]);
   const [hourlyRainChance, setHourlyRainChance] = useState<number | null>(null);
-  const [hourlyWeatherTime, setHourlyWeatherTime] = useState<string[]>([])
+  const [hourlyWeatherTime, setHourlyWeatherTime] = useState<string[]>([]);
 
   return (
     <main className="min-h-screen bg-[#1b6ea8] flex items-center justify-center p-6">
@@ -42,9 +42,9 @@ function App() {
                 setCode(weatherData.daily.weather_code);
                 setSunrise(weatherData.daily.sunrise[0]);
                 setSunset(weatherData.daily.sunset[0]);
-                setHorlyTemp(weatherData.hourly.temperature_2m);
+                setHorlyTemperature(weatherData.hourly.temperature_2m);
                 setHourlyRainChance(weatherData.hourly.rain[0]);
-                setHourlyWeatherTime(weatherData.hourly.time)
+                setHourlyWeatherTime(weatherData.hourly.time);
 
                 const airQualityData = await getAirQuality();
                 setCo(airQualityData.current.carbon_monoxide);
@@ -78,8 +78,11 @@ function App() {
           {date}
           {code}
         </SevenDayForecast>
-        <HourlyForecastCard hourlyTemp={hourlyTemp} hourlyRainChance={hourlyRainChance} time={hourlyWeatherTime}>
-          {hourlyTemp}
+        <HourlyForecastCard
+          hourlyTemperature={hourlyTemperature}
+          hourlyRainChance={hourlyRainChance}
+          time={hourlyWeatherTime}>
+          {hourlyTemperature}
           {hourlyRainChance}
           {hourlyWeatherTime}
         </HourlyForecastCard>

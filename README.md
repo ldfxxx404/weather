@@ -32,22 +32,18 @@
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/<your-username>/weather.git
 cd weather/frontend
 
 ### 2. Run the app
 Using Yarn:
 
-```bash
 yarn install
 yarn dev
-```
 
 or using Docker:
-```bash
+bash
 docker compose up
-```
 
 3. Open in your browser
 

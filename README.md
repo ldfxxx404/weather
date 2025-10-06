@@ -39,10 +39,11 @@
 Using Yarn:
 
 yarn install
+
 yarn dev
 
 or using Docker:
-bash
+
 docker compose up
 
 3. Open in your browser

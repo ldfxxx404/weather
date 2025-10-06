@@ -32,8 +32,8 @@
 
 ### 1. Clone the repository
 
-git clone https://github.com/<your-username>/weather.git
-cd weather/frontend
+- git clone https://github.com/ldfxxx404/weather.git
+- cd weather/frontend
 
 ### 2. Run the app
 Using Yarn:

@@ -7,6 +7,8 @@ import getWeather from '@/utils/getWeather';
 import getAirQuality from '@/utils/getAirQuality';
 import { AirQualityCard } from '@/components/airQualityCard';
 import { HourlyForecastCard } from '@/components/hourlyForecastCard';
+import { RainForecastCard } from '@/components/rainForecastCard';
+import { SnowForecastCard } from '@/components/snowForecastCard';
 
 function App() {
   const [city, setCity] = useState<string>('');
@@ -23,12 +25,13 @@ function App() {
   const [hourlyTemperature, setHorlyTemperature] = useState<number[]>([]);
   const [hourlyRainChance, setHourlyRainChance] = useState<number | null>(null);
   const [hourlyWeatherTime, setHourlyWeatherTime] = useState<string[]>([]);
+  const [hourlyRain, setHourlyRain] = useState<number[]>([]);
+  const [hourlySnow, setHourlySnow] = useState<number[]>([]);
 
   return (
-    <main className="min-h-screen bg-[#1b6ea8] flex items-center justify-center p-6">
+    <main className="min-h-screen bg-[#1b6ea8] flex flex-col items-center justify-center p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
         <div className="flex flex-col gap-6">
-          {' '}
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -45,6 +48,8 @@ function App() {
                 setHorlyTemperature(weatherData.hourly.temperature_2m);
                 setHourlyRainChance(weatherData.hourly.rain[0]);
                 setHourlyWeatherTime(weatherData.hourly.time);
+                setHourlyRain(weatherData.hourly.rain);
+                setHourlySnow(weatherData.hourly.snowfall);
 
                 const airQualityData = await getAirQuality();
                 setCo(airQualityData.current.carbon_monoxide);
@@ -86,6 +91,14 @@ function App() {
           {hourlyRainChance}
           {hourlyWeatherTime}
         </HourlyForecastCard>
+        <RainForecastCard hourlyRain={hourlyRain} time={hourlyWeatherTime}>
+          {hourlyRain}
+          {hourlyWeatherTime}
+        </RainForecastCard>
+        <SnowForecastCard hourlySnow={hourlySnow} time={hourlyWeatherTime}>
+          {hourlySnow}
+          {hourlyWeatherTime}
+        </SnowForecastCard>
       </div>
     </main>
   );

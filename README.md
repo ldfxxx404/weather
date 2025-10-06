@@ -34,7 +34,7 @@
 
 ```bash
 git clone https://github.com/<your-username>/weather.git
-cd weather/frontend```
+cd weather/frontend
 
 ### 2. Run the app
 Using Yarn:

@@ -38,14 +38,16 @@
 ### 2. Run the app
 Using Yarn:
 
+```bash
 yarn install
-
+```
+```bash
 yarn dev
-
+```
 or using Docker:
-
+```bash
 docker compose up
-
+```
 3. Open in your browser
 
 http://localhost:5173

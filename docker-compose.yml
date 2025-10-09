@@ -1,7 +1,7 @@
 name: 'weather'
 services:
   frontend:
-    build: .
+    build: Dockerfile
     ports:
       - '5173:5173'
     volumes:

@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { SearchBar } from '@/components/searchBar';
 import { SevenDayForecast } from '@/components/sevenDayForecastCard';
 import { TodayForecastCard } from '@/components/todayForecastCard';
-import getCoordinates from '@/utils/getCoordinates';
-import getWeather from '@/utils/getWeather';
-import getAirQuality from '@/utils/getAirQuality';
+import { getCoordinates } from '@/utils/getCoordinates';
+import { getWeather } from '@/utils/getWeather';
+import { getAirQuality } from '@/utils/getAirQuality';
 import { AirQualityCard } from '@/components/airQualityCard';
 import { HourlyForecastCard } from '@/components/hourlyForecastCard';
 import { RainForecastCard } from '@/components/rainForecastCard';
 import { SnowForecastCard } from '@/components/snowForecastCard';
 
-function App() {
+export default function App() {
   const [city, setCity] = useState<string>('');
   const [weeklyMax, setWeeklyMax] = useState<number[]>([]);
   const [weeklyMin, setWeeklyMin] = useState<number[]>([]);
@@ -103,5 +103,3 @@ function App() {
     </main>
   );
 }
-
-export default App;

@@ -1,7 +1,7 @@
 import { COORDINATES_URL } from '@/constants';
 import { CoordinatesResponse } from '@/types/responseTyping';
 
-export default async function getCoordinates(city: string): Promise<CoordinatesResponse | null> {
+export async function getCoordinates(city: string): Promise<CoordinatesResponse | null> {
   try {
     const response = await fetch(COORDINATES_URL.replace('${city}', city));
     if (!response.ok) {

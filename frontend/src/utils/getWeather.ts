@@ -1,7 +1,7 @@
 import { WEATHER_URL } from '@/constants';
 import { WeatherResponse } from '@/types/responseTyping';
 
-export default async function getWeather(): Promise<WeatherResponse> {
+export async function getWeather(): Promise<WeatherResponse> {
   try {
     const { latitude, longitude } = JSON.parse(localStorage.getItem('coordinates') || '{}');
     const res = await fetch(`${WEATHER_URL}&latitude=${latitude}&longitude=${longitude}`);

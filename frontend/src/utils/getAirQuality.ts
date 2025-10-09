@@ -1,7 +1,7 @@
 import { AIR_QUALITY_URL } from '@/constants';
 import { AirQualityResponse } from '@/types/responseTyping';
 
-export default async function getAirQuality(): Promise<AirQualityResponse> {
+export async function getAirQuality(): Promise<AirQualityResponse> {
   try {
     const { latitude, longitude } = JSON.parse(localStorage.getItem('coordinates') || '{}');
     const res = await fetch(`${AIR_QUALITY_URL}&latitude=${latitude}&longitude=${longitude}`);

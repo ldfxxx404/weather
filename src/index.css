@@ -11,10 +11,14 @@
 }
 
 @theme {
-  --color-background: #1e2122;
-  --color-card: #517136;
-  --color-inside: #6a7d33;
-  --color-gtext: #afb7bd;
+  --color-background: #282828; 
+  --color-card: #3c3836;       
+  --color-inside: #504945;     
+  --color-gtext: #ebdbb2;      
+  --color-accent: #d79921;     
+  --color-accent-soft: #fabd2f;
+  --color-muted: #a89984;      
+  --color-line: #665c54;       
 }
 
 :root {
@@ -23,8 +27,8 @@
   font-weight: 400;
 
   color-scheme: dark;
-  color: #b3e1f0;
-  /* background-color: #181624; */
+  color: var(--color-gtext);
+  background-color: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

@@ -29,7 +29,7 @@ export default function App() {
   const [hourlySnow, setHourlySnow] = useState<number[]>([]);
 
   return (
-    <main className="min-h-screen bg-[#1b6ea8] flex flex-col items-center justify-center p-6">
+    <main className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
         <div className="flex flex-col gap-6">
           <form

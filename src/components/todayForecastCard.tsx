@@ -10,7 +10,7 @@ interface TodayForecastCardProps extends DailyWeatherForecast {
 
 export const TodayForecastCard = ({ todayWeather, sunrise, sunset }: TodayForecastCardProps) => {
   return (
-    <div className="flex flex-col bg-[#40a4eb] max-sm:bg-[#1C9CF6] rounded-xl p-6 text-white h-40">
+    <div className="flex flex-col bg-card max-sm:bg-[#1C9CF6] rounded-xl p-6 text-gtext h-40">
       <h2 className="text-lg font-bold max-sm:font-light">Today weather 🌡️</h2>
       <div className="flex justify-between items-center w-full">
         <span className="text-lg font-bold max-sm:font-light">{Round(todayWeather)}°C</span>

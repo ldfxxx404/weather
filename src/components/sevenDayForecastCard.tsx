@@ -12,13 +12,13 @@ interface SevenDayForecastProps {
 
 export const SevenDayForecast = ({ weeklyMax, weeklyMin, code, date }: SevenDayForecastProps) => {
   return (
-    <div className="bg-[#40a4eb] rounded-xl p-6 text-white max-h-[417px] overflow-y-auto no-scrollbar">
+    <div className="bg-card rounded-xl p-6 text-gtext max-h-[417px] overflow-y-auto no-scrollbar">
       <h2 className="text-lg font-bold mb-6 max-sm:font-light">7 day forecast</h2>
       <ul className="space-y-2">
         {weeklyMax.map((maxTemp: number, idx: number) => (
           <li
             key={idx}
-            className="flex justify-between items-center rounded-lg p-3 border-none bg-[#3696dbbe] transition-all shadow-sm">
+            className="flex justify-between items-center rounded-lg p-3 border-none bg-inside transition-all shadow-sm">
             <span className="text-lg font-bold max-sm:font-light">{reverseDate(date[idx])}</span>
             <span className="text-lg font-bold max-sm:font-light lg:ml-10 text-red-400">
               {Round(maxTemp)}°C

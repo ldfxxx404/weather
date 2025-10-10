@@ -8,7 +8,7 @@ interface AirQualityProps {
 
 export const AirQualityCard = ({ dust, aqi, co }: AirQualityProps) => {
   return (
-    <div className="bg-[#40a4eb] rounded-xl p-6 text-white h-40 mt-0.5">
+    <div className="bg-card rounded-xl p-6 text-gtext h-40 mt-0.5"> 
       <h2 className="text-lg font-bold mb-2 max-sm:font-light">Air quality</h2>
       <h3 className="text-lg font-bold max-sm:font-light">
         CO₂: <span className="font-medium text-base max-sm:font-light">{co}</span>

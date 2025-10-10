@@ -10,6 +10,13 @@
   }
 }
 
+@theme {
+  --color-background: #282828;
+  --color-card: #8ec07c;
+  --color-inside: #859c40;
+  --color-gtext: #afb7bd;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -17,7 +24,7 @@
 
   color-scheme: dark;
   color: #b3e1f0;
-  background-color: #181624;
+  /* background-color: #181624; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

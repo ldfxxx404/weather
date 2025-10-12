@@ -9,9 +9,11 @@ interface RainForecastCardProps {
 
 export const RainForecastCard = ({ hourlyRain, time }: RainForecastCardProps) => {
   return (
-    <div className="bg-card rounded-2xl p-6 text-gtext w-full max-w-xl   max-sm:ml-0 max-h-44 overflow-x-scroll no-scrollbar flex flex-col gap-2">
+    <div className="bg-card rounded-2xl p-6 text-gtext w-full max-w-xl max-sm:ml-0 max-h-44 overflow-x-scroll no-scrollbar flex flex-col gap-2">
       <div className="flex items-center gap-2 mb-2">
-        <h2 className="font-bold text-lg  items-center">Hourly Rain</h2>
+        <h2 className="font-bold text-lg items-center max-sm:text-base max-sm:font-light">
+          Hourly Rain
+        </h2>
       </div>
       <div className="flex flex-1 gap-2">
         {hourlyRain.map((rain, idx) =>

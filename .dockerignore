@@ -1,0 +1,93 @@
+# ==============================
+# Node / Frontend build
+# ==============================
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+package-lock.json
+dist
+build
+.cache
+.tmp
+coverage
+.vscode
+.idea
+*.local
+*.log
+*.pid
+*.seed
+*.tgz
+*.swp
+*.swo
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+env/
+venv/
+.venv/
+.mypy_cache/
+.pytest_cache/
+.cache/
+Pipfile.lock
+poetry.lock
+
+# ==============================
+# OS / System files
+# ==============================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+Icon?
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# ==============================
+# Git / Env / Config
+# ==============================
+.git
+.gitignore
+.gitattributes
+.env
+.env.*
+docker-compose.yml
+Dockerfile
+*.iml
+.editorconfig
+*.code-workspace
+
+# ==============================
+# Tests / Docs
+# ==============================
+docs/
+test/
+tests/
+spec/
+__tests__/
+examples/
+*.md
+
+# ==============================
+# Others
+# ==============================
+*.sqlite3
+*.db
+*.pem
+*.crt
+*.key
+*.lock
+*.orig
+*.rej
+*.tar
+*.zip
+*.gz
+*.7z

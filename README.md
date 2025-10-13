@@ -31,7 +31,7 @@
 ### 1. Clone the repository
 
 - git clone https://github.com/ldfxxx404/weather.git
-- cd weather/frontend
+- cd weather
 
 ### 2. Run the app
 
